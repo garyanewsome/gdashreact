@@ -1,7 +1,7 @@
 var store = localStorage;
 
 function storeLinks() {
-    var myLinks = document.getElementsByTagName("li").value;
+    var myLinks = document.getElementsByTagName("link").value;
     store.links[] = myLinks;
 
 }
@@ -9,18 +9,18 @@ function storeLinks() {
 function recallLinks(){
 	if(store.links[] !== undefined){
         for (i = 0; i < links.length; i++){
-		  document.getElementsByTagName("li")[i].innerHTML = '<a href=" + store.links[i] + " target="_blank">store.links[i]</a>';
+		  document.getElementsByTagName("link")[i].innerHTML = '<a href="+store.links[i]+" target="_blank">store.links[i]</a>';
 	} else {
-		document.getElementsByTagName("li")[0].innerHTML = "gDash Links";
+		document.getElementsByTagName("link")[0].innerHTML = "gDash Links";
 	}
 }
 
 function createEventListeners() {
     var saveButton = document.getElementById("saveButton");
     if (saveButton.addEventListener) {
-        saveButton.addEventListener("click", storeNotes, false);
+        saveButton.addEventListener("click", storeLinks, false);
     } else if (saveButton.attachEvent) {
-        saveButton.attachEvent("onclick", storeNotes);
+        saveButton.attachEvent("onclick", storeLinks);
     }
 }
 
