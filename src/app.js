@@ -23,46 +23,50 @@ var Notes = React.createClass({
 	},
 	render: function(){
 		return (<div>
-    <h4>
-        Column right - Notepad
-    </h4>
+    <h4>gDash Notes</h4>
     <textarea id="myNotes" name="notes" value={this.state.notes} onChange={this.updateTextarea} rows="20" cols="45" placeholder="gDash notes..."></textarea>
     <input type="button" id="saveButton" value="Save Note" onClick={this.store.notes}/>
 </div>)
 	}
 })
 
-ReactDOM.render(<Notes />, myNotes)
-// npm run start in term to start server localhost:8080
-
-
-
-
-
-var mountNode = document.getElementById("simple")
-
-var HelloMessage = React.createClass({
+var todos = document.getElementById("todos")
+var TodoList = React.createClass({
   render: function() {
-    return <div>Hello {this.props.name}</div>;
+    var createItem = function(item) {
+      return <li key={item.id}>{item.text}</li>;
+    };
+    return <ul>{this.props.items.map(createItem)}</ul>;
   }
-})
+});
+var TodoApp = React.createClass({
+  getInitialState: function() {
+    return {items: [], text: ''};
+  },
+  onChange: function(e) {
+    this.setState({text: e.target.value});
+  },
+  handleSubmit: function(e) {
+    e.preventDefault();
+    var nextItems = this.state.items.concat([{text: this.state.text, id: Date.now()}]);
+    var nextText = '';
+    this.setState({items: nextItems, text: nextText});
+  },
+  render: function() {
+    return (
+      <div>
+        <h4>gDash ToDo</h4>
+        <TodoList items={this.state.items} />
+        <form onSubmit={this.handleSubmit}>
+          <input onChange={this.onChange} value={this.state.text} />
+          <button>{'Add #' + (this.state.items.length + 1)}</button>
+        </form>
+      </div>
+    );
+  }
+});
 
-var ManyHello = React.createClass({
-	render: function() {
-		return (<div><HelloMessage name="FRED" />
-					<HelloMessage name="FRED" />
-					<HelloMessage name="FRED" />
-					<HelloMessage name="FRED" /></div>)
-	}
-})
+ReactDOM.render(<Notes />, myNotes)
+ReactDOM.render(<TodoApp />, todos);
 
-
-
-ReactDOM.render(<ManyHello />, mountNode);
-<div>
-    <h4>
-        Column right - Notepad
-    </h4>
-    <textarea id="myNotes" name="notes" rows="20" cols="45" placeholder="gDash notes..."></textarea>
-    <input type="button" id="saveButton" value="Save Note" />
-</div>
+// npm run start in term to start server localhost:8080

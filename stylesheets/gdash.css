@@ -1,0 +1,129 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+body {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #DDDDDD;
+  color: #000000; }
+  body::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+#header {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  font-family: Georgia, serif;
+  font-size: 2em;
+  text-align: center; }
+  #header:last-child {
+    margin-right: 0; }
+
+#main {
+  text-align: center;
+  font-size: 1.25em; }
+
+#workflows {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%; }
+  #workflows:last-child {
+    margin-right: 0; }
+
+#links {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%; }
+  #links:last-child {
+    margin-right: 0; }
+
+#todos {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%; }
+  #todos:last-child {
+    margin-right: 0; }
+
+#notes {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%; }
+  #notes:last-child {
+    margin-right: 0; }
+
+#myNotes {
+  display: block;
+  margin: 10px;
+  padding: 10px; }
+
+#saveButton {
+  background-color: #EEEEEE;
+  margin: 5px;
+  padding: 10px;
+  border: 3px solid #800000;
+  border-radius: .625em;
+  font-size: 1.1em; }
+
+#footer {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  text-align: center; }
+  #footer:last-child {
+    margin-right: 0; }
+
+#links, #todos, #notes {
+  margin: 8px;
+  padding: 16px;
+  border: 3px solid #800000;
+  border-radius: .625em; }
+  @media screen and (max-width: 768px) {
+    #links, #todos, #notes {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%; }
+      #links:last-child, #todos:last-child, #notes:last-child {
+        margin-right: 0; } }
+
+h4 {
+  text-align: center; }
+
+.button {
+  display: inline-block;
+  padding: 15px;
+  border: .094em solid #800000;
+  border-radius: .625em;
+  background-color: #800000;
+  color: #DDDDDD;
+  text-align: center;
+  font-size: 1.8em;
+  font-family: Georgia, serif;
+  letter-spacing: .1em; }
+
+a.button {
+  text-decoration: none; }
+
+a.button:hover {
+  background: #3d7a80; }
+
+ul {
+  text-align: left; }
+
+p {
+  padding-left: 10px;
+  text-align: left; }
+
+/*# sourceMappingURL=gdash.css.map */
